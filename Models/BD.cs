@@ -23,7 +23,7 @@ public class BD{
             List<Dificultades> Listadificultades = PreguntadoORT.Query<Dificultades>(sql).ToList();
         }
     }
-    public static void ObtenerPreguntas(int idDificultad, int idCategoria){        
+    public static List<Preguntas> ObtenerPreguntas(int idDificultad, int idCategoria){        
         using(SqlConnection PreguntadoORT = new SqlConnection(_connectionString))
         {
             string sql = "SELECT * FROM Preguntas WHERE  IdDificultad = @pidDificultad  AND  IdCategoria = @pidCategoria ";
@@ -31,11 +31,11 @@ public class BD{
             PreguntadoORT.Execute(sql, new{IdDificultad = idDificultad, IdCategoria = idCategoria}); 
         }
     }
-    public static List<Preguntas> ObtenerRespuestas(List<Preguntas>ListaPreguntas){        
+    public static List<Respuestas> ObtenerRespuestas(List<Preguntas>ListaPreguntas){        
         using(SqlConnection PreguntadoORT = new SqlConnection(_connectionString))
         {
-            string sql = "SELECT * FROM Respuestas WHERE  IdPregunta = @pidPregunta";
-            List<Preguntas> ListaPreguntas = PreguntadoORT.Query<Preguntas>(sql).ToList();
+            string sql = "SELECT * FROM Respuestas WHERE  IdPregunta = @pidPregunta AND IdCategoria = @pidCategoria ";
+            ListaPreguntas = PreguntadoORT.Query<Preguntas>(sql).ToList();
             PreguntadoORT.Execute(sql, new{IdDificultad = idDificultad, IdCategoria = idCategoria}); 
         }
         return ListaRespuestas;
