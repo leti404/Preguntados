@@ -20,9 +20,9 @@ public class HomeController : Controller
     }
 
     [HttpPost] // cambiar     public static string nombJugador { get; set; } = "Jugador1"; tiene que ir a la bd.cs
-    public IActionResult Index(string nombJugador)
+    public IActionResult Comenzar(string username)
     {
-        Escape.nombJugador = nombJugador;
+        Escape.username = username;
         return RedirectToAction("Tutorial");
     }
 

@@ -4,9 +4,9 @@ private static string username {get; set;}
 private static int puntajeActual {get; set;}
 private static int cantidadPreguntasCorrectas {get; set;}
 private static List<Preguntas> preguntas {get; set;}
-private static List<Respuestas> preguntas1 {get; set;}
+private static List<Respuestas> respuestas {get; set;}
 
-
+const int RESP_CORRECTA = 100;
 //Metodos
 public static void InicializarJuego(){
     username = string.Empty;
@@ -23,16 +23,32 @@ public static List<Dificultades> ObtenerDificultades(){
     return ListaDificultad;
 }
 public static void CargarPartida(string username, int dificultad, int categoria){
-    BD.ObtenerPreguntas()
+    preguntas = BD.ObtenerPreguntas(dificultad, categoria);
+    respuestas = BD.ObtenerRespuestas(preguntas);
 }
-public static void ObtenerProximaPregunta(){
-    
+public static Preguntas ObtenerProximaPregunta(){
+    Random random = new Random();
+    int numeroAleatorio = random.Next(0, 19);
+    return preguntas[numeroAleatorio];
 }
-public static void ObtenerProximasRespuestas(int idPregunta){
-    
+public static List<Respuestas> ObtenerProximasRespuestas(int idPregunta){
+    List<Respuestas> RespuestasPorPreg = new List<Respuestas>();
+    RespuestasPorPreg() = respuestas[idPregunta].IdPregunta = idPregunta;
+    return RespuestasPorPreg;
 }
-public static void VerificarRespuesta(int idPregunta, int idRespuesta){
-    
+public static bool VerificarRespuesta(int idPregunta, int idRespuesta){
+    bool EsCorrecta = false;
+    if(respuestas[idRespuesta].Correcta == true)
+    {
+        EsCorrecta = true;
+        puntajeActual += RESP_CORRECTA;
+        cantidadPreguntasCorrectas++;
+    }
+    else{
+        EsCorrecta = false;
+        preguntas.RemoveAt(idPregunta);
+    }
+    return EsCorrecta;
 }
 }
 
