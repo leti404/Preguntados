@@ -13,11 +13,18 @@ public class HomeController : Controller
         _logger = logger;
     }
 
+    [HttpGet]
     public IActionResult Index()
     {
         return View();
     }
 
+    [HttpPost] // cambiar     public static string nombJugador { get; set; } = "Jugador1"; tiene que ir a la bd.cs
+    public IActionResult Index(string nombJugador)
+    {
+        Escape.nombJugador = nombJugador;
+        return RedirectToAction("Tutorial");
+    }
     public IActionResult Privacy()
     {
         return View();

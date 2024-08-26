@@ -2,6 +2,16 @@
     ViewData["Title"] = "Home Page";
 }
 
+<!-- Form Codigo -->
+  <form action='@Url.Action("Index")' method="POST">
+    <div>
+        <label for="playerName" class="form-label"> </label>Antes de empezar ingrese su nombre:</label>
+        <input type="text" class="form-control" id="nombJugador" name="nombJugador" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+<!-- Fin Form Codigo -->
+
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
