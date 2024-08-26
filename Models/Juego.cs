@@ -14,7 +14,24 @@ public static void InicializarJuego(){
     cantidadPreguntasCorrectas = 0;
 }
 
-public static List<Categorias> InicializarJuego(){
+public static List<Categorias> ObtenerCategorias(){
+    List<Categorias> ListaCategorias = new List<Categorias>();
+    return ListaCategorias;
+}
+public static List<Dificultades> ObtenerDificultades(){
+    List<Dificultades> ListaDificultad = new List<Dificultades>();
+    return ListaDificultad;
+}
+public static void CargarPartida(string username, int dificultad, int categoria){
+    BD.ObtenerPreguntas() 
+}
+public static void ObtenerProximaPregunta(){
+    
+}
+public static void ObtenerProximasRespuestas(int idPregunta){
+    
+}
+public static void VerificarRespuesta(int idPregunta, int idRespuesta){
     
 }
 }

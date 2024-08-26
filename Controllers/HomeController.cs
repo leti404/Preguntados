@@ -25,6 +25,13 @@ public class HomeController : Controller
         Escape.nombJugador = nombJugador;
         return RedirectToAction("Tutorial");
     }
+
+    public IActionResult ConfigurarJuego()
+    {
+        ViewBag.categoria = Juego.InicializarJuego();
+        ViewBag.
+        return View();
+    }
     public IActionResult Privacy()
     {
         return View();
