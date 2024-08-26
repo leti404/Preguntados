@@ -23,7 +23,7 @@ public static List<Dificultades> ObtenerDificultades(){
     return ListaDificultad;
 }
 public static void CargarPartida(string username, int dificultad, int categoria){
-    BD.ObtenerPreguntas() 
+    BD.ObtenerPreguntas()
 }
 public static void ObtenerProximaPregunta(){
     
