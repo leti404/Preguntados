@@ -30,16 +30,31 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
             @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - TP_Preguntados - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+    <footer >
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="logo.png" alt="Logo">
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <a href="Index.cshtml">Home</a>
+                    <a href="ConfigurarJuego.cshml"> Configurar Juego</a>
+                    <a href="Juego.cshml"> Juego</a>
+                </div>
+                <div class="footer-column">
+                    <a href="Fin.cshml"> Fin</a>
+                    <a href="Respuesta.cshtml">Respuesta</a>
+                    <a href="Creditos.cshtml">Creditos</a>
+                </div>
+            </div>
         </div>
+        <div class="footer-bottom">
+            &copy; 2024 - TP_Preguntados - Szwarcbort - Garber - Passer
+        </div>
+    </footer>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
