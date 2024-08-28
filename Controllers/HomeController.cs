@@ -42,7 +42,7 @@ public class HomeController : Controller
         Juego.CargarPartida(username, dificultad, categoria);
         return RedirectToAction("ActionResult Jugar");
     }
-    public IActionResult Jugar()// martu chekealo lo hice yo(leti) da error por algo del viewbag
+    public IActionResult Jugar()
     {
         ViewBag.PreguntaActual = Juego.ObtenerProximaPregunta();
         if(ViewBag.PreguntaActual.Count == 0)
