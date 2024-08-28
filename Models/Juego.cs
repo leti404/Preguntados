@@ -22,6 +22,7 @@ public static List<Dificultades> ObtenerDificultades(){
     List<Dificultades> ListaDificultad = new List<Dificultades>();
     return ListaDificultad;
 }
+
 public static void CargarPartida(string username, int dificultad, int categoria){
     preguntas = BD.ObtenerPreguntas(dificultad, categoria);
     respuestas = BD.ObtenerRespuestas(preguntas);
@@ -33,7 +34,11 @@ public static Preguntas ObtenerProximaPregunta(){
 }
 public static List<Respuestas> ObtenerProximasRespuestas(int idPregunta){
     List<Respuestas> RespuestasPorPreg = new List<Respuestas>();
-    RespuestasPorPreg() = respuestas[idPregunta].IdPregunta = idPregunta;
+        foreach (Respuestas respuesta in respuestas) {
+        if (respuesta.IdPregunta == idPregunta) {
+            RespuestasPorPreg.Add(respuesta);
+        }
+    }
     return RespuestasPorPreg;
 }
 public static bool VerificarRespuesta(int idPregunta, int idRespuesta){
