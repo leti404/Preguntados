@@ -43,7 +43,6 @@ public class HomeController : Controller
         ViewBag.puntajeActual = puntajeActual;
         Juego.CargarPartida(username, dificultad, categoria);
         return RedirectToAction("Jugar");
-        return RedirectToAction("Jugar");
     }
     public IActionResult Jugar()
     {
