@@ -48,7 +48,7 @@ public class HomeController : Controller
     public IActionResult Jugar()
     {
         ViewBag.PreguntaActual = Juego.ObtenerProximaPregunta();
-        if(ViewBag.PreguntaActual != null)
+        if(ViewBag.PreguntaActual == null)
         {
             return View("Fin");
         }
