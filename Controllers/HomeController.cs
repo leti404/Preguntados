@@ -35,14 +35,15 @@ public class HomeController : Controller
         ViewBag.dificultad = Juego.ObtenerDificultades();
         return View();
     }
+
     [HttpPost] 
-    public IActionResult Comenzar(string username, int dificultad, int categoria)
+    public IActionResult Comenzar(string username, int dificultad, int categoria, int puntajeActual)
     {
         Juego.username = username;
         ViewBag.NombreUser = username;
-        ViewBag.puntajeActual = puntajeActual;
+        ViewBag.puntajeActual = Juego.puntajeActual;
         Juego.CargarPartida(username, dificultad, categoria);
-        return RedirectToAction("Jugar");
+        return RedirectToAction("Juego");
     }
     public IActionResult Jugar()
     {

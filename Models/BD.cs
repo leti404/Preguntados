@@ -2,7 +2,7 @@ using System.Data.SqlClient;
 using System;
 using Dapper;
 public class BD{
-    private static string _connectionString = @"Server=localhost; DataBase=JJOO;Trusted_Connection=True;";
+    private static string _connectionString = @"Server=localhost; DataBase=PreguntadoORT;Trusted_Connection=True;";
     public static void ObtenerCategorias(Categorias cate)
     {
         
@@ -35,18 +35,15 @@ public class BD{
             }
             else if(idDificultad == -1){
             string sql = "SELECT * FROM Preguntas WHERE IdCategoria = @pidCategoria ";
-            ListaPreguntas = PreguntadoORT.Query<Preguntas>(sql).ToList();
-            PreguntadoORT.Execute(sql, new{IdCategoria = idCategoria});
+            ListaPreguntas = PreguntadoORT.Query<Preguntas>(sql, new{IdCategoria = idCategoria}).ToList();
             }
             else if(idCategoria == -1){
             string sql = "SELECT * FROM Preguntas WHERE IdDificultad = @pidDificultad ";
-            ListaPreguntas = PreguntadoORT.Query<Preguntas>(sql).ToList();
-            PreguntadoORT.Execute(sql, new{IdDificultad = idDificultad});
-            }else
-            {
+            ListaPreguntas = PreguntadoORT.Query<Preguntas>(sql, new{IdDificultad = idDificultad}).ToList();
+            }
+            else{
             string sql = "SELECT * FROM Preguntas WHERE  IdDificultad = @pidDificultad  AND  IdCategoria = @pidCategoria ";
-            ListaPreguntas = PreguntadoORT.Query<Preguntas>(sql).ToList();
-            PreguntadoORT.Execute(sql, new{IdDificultad = idDificultad, IdCategoria = idCategoria}); 
+            ListaPreguntas = PreguntadoORT.Query<Preguntas>(sql, new{IdDificultad = idDificultad, IdCategoria = idCategoria}).ToList();
             }
             
         }
