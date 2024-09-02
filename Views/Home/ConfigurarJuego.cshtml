@@ -1,15 +1,15 @@
-<form action='@Url.Action("Comenzar")' method="POST">
+<form action='@Url.Action("Comenzar", "HomeController")' method="POST">
   <div>
     <label for="username" class="form-label">Antes de empezar ingrese su nombre:</label>
     <input type="text" class="form-control" id="username" name="username" required />
-    <select class="form-select form-select-lg mb-3" aria-label="Large select example" name="difficulty" required>
+    <select class="form-select form-select-lg mb-3" aria-label="Large select example" name="dificultad" required>
       <option value="" disabled selected>Selecciona un Nivel de Dificultad</option>
       <option value="1">Fácil</option>
       <option value="2">Mediano</option>
       <option value="3">Difícil</option>
       <option value="-1">Todas</option>
     </select>
-    <select class="form-select form-select-lg mb-3" aria-label="Large select example" name="category" required>
+    <select class="form-select form-select-lg mb-3" aria-label="Large select example" name="categoria" required>
       <option value="" disabled selected>Selecciona una Categoría</option>
       <option value="1">Geografía</option>
       <option value="2">Historia</option>

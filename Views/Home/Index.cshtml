@@ -1,20 +1,18 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-<body>
     
-    <main class = "background">
-        <div class= "img">
-            <img src="/Fotos/logoTitul.png" alt="logoTitul">
-        </div>
+<main class = "background">
+    <div class= "img">
+        <img src="/Fotos/logoTitul.png" alt="logoTitul">
+     </div>
         
-        <div class="button-container">
-             <button type="button" class="custom-button" onclick="configurarJuego()"> Iniciar Juego </button>
-        </div>
-    </main>
+    <div class="button-container">
+        <a href='@Url.Action("ConfigurarJuego")' class="custom-button" type="button"> Comencemos </a>
+    </div>
+</main>
     
-</body>
+
 
 
 
