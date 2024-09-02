@@ -39,7 +39,10 @@ public class HomeController : Controller
     public IActionResult Comenzar(string username, int dificultad, int categoria)
     {
         Juego.username = username;
+        ViewBag.NombreUser = username;
+        ViewBag.puntajeActual = puntajeActual;
         Juego.CargarPartida(username, dificultad, categoria);
+        return RedirectToAction("Jugar");
         return RedirectToAction("Jugar");
     }
     public IActionResult Jugar()
@@ -55,7 +58,8 @@ public class HomeController : Controller
             return View();
         }
     }
-    [HttpPost] IActionResult VerificarRespuesta(int idPregunta, int idRespuesta)
+    [HttpPost] 
+    IActionResult VerificarRespuesta(int idPregunta, int idRespuesta)
     {
         if(Juego.VerificarRespuesta(idPregunta, idRespuesta))
         {

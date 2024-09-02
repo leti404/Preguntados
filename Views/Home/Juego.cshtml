@@ -1,9 +1,16 @@
+<p>@ViewBag.username ya tenes @ViewBag.puntajeActual puntos<p>
+
 <div class="containerTarjeta">
     <h1>PREGUNTADOS</h1>
-    <div class="pregunta">@ViewBag.PreguntaActual</div>
-    <ul class="opciones">
-        <li><button> @ViewBag. </button></li>
-        <li><button>@ViewBag. </button></li>
-        <li><button>@ViewBag. </button></li>
-    </ul>
+    <div class="pregunta">
+        <img src="@ViewBag.ImagenPregunta" alt="Imagen de la Pregunta">
+        @ViewBag.PreguntaActual
+    </div>
+    <form method="post" action='@Url.Action("VerificarRespuesta")'> <!--no funca-->
+        <ul class="opciones">
+            <li><button> @ViewBag. </button></li>
+            <li><button>@ViewBag. </button></li>
+            <li><button>@ViewBag. </button></li>
+        </ul>
+    </form>
 </div>
