@@ -1,0 +1,28 @@
+<main class = "background">
+<p>@ViewBag.username tienes @ViewBag.PuntajeActual puntos</p>
+
+<div class="containerTarjeta">
+    <h1>PREGUNTADOS</h1>
+    <div class="pregunta">
+        <img src="@ViewBag.ImagenPregunta" alt="Imagen de la Pregunta" />
+        <p>@ViewBag.PreguntaActual</p>
+    </div>
+    <form method="post" action='@Url.Action("VerificarRespuesta")'>
+        <input type="hidden" name="idPregunta" value="@ViewBag.PreguntaActual.IdPregunta" />
+        <ul class="opciones">
+            @foreach (Respuestas respuesta in ViewBag.DatosRespuestas)
+            {
+                <li class="form-check">
+                    <input class="form-check-input" type="radio" id="respuesta_@respuesta.IdRespuesta" name="idRespuesta" value="@respuesta.IdRespuesta" />
+                    <label class="form-check-label" for="respuesta_@respuesta.IdRespuesta">
+                        @respuesta.Contenido
+                    </label>
+                </li>
+            }
+        </ul>
+        <button type="submit" class="btn btn-primary">Verificar!</button>
+    </form>
+</div>
+
+</main>
+

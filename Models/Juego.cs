@@ -29,7 +29,7 @@ public static void CargarPartida(string username, int dificultad, int categoria)
 }
 public static Preguntas ObtenerProximaPregunta(){
     Random random = new Random();
-    int numeroAleatorio = random.Next(0, preguntas.Count + 1);
+    int numeroAleatorio = random.Next(0, preguntas.Count);
     return preguntas[numeroAleatorio];
 }
 public static List<Respuestas> ObtenerProximasRespuestas(int idPregunta){

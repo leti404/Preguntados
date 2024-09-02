@@ -43,19 +43,19 @@ public class HomeController : Controller
         ViewBag.NombreUser = username;
         ViewBag.puntajeActual = Juego.puntajeActual;
         Juego.CargarPartida(username, dificultad, categoria);
-        return RedirectToAction("Juego");
+        return RedirectToAction("Jugar");
     }
     public IActionResult Jugar()
     {
         ViewBag.PreguntaActual = Juego.ObtenerProximaPregunta();
-        if(ViewBag.PreguntaActual.Count == 0)
+        if(ViewBag.PreguntaActual != null)
         {
             return View("Fin");
         }
-        else 
+        else
         {
-            ViewBag.RespuestaActual = Juego.ObtenerProximasRespuestas(ViewBag.PreguntaActual.IdPregunta);
-            return View();
+            ViewBag.DatosRespuestas = Juego.ObtenerProximasRespuestas(ViewBag.PreguntaActual.IdPregunta);
+            return View("Jugar");
         }
     }
     [HttpPost] 
