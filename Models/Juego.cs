@@ -34,9 +34,9 @@ public static Preguntas ObtenerProximaPregunta(){
 }
 public static List<Respuestas> ObtenerProximasRespuestas(int idPregunta){
     List<Respuestas> RespuestasPorPreg = new List<Respuestas>();
-        foreach (Respuestas respuesta in respuestas) {
-        if (respuesta.IdPregunta == idPregunta) {
-            RespuestasPorPreg.Add(respuesta);
+        foreach (Respuestas r in respuestas) {
+        if (r.IdPregunta == idPregunta) {
+            RespuestasPorPreg.Add(r);
         }
     }
     return RespuestasPorPreg;

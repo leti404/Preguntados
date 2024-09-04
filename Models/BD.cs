@@ -52,14 +52,13 @@ public class BD{
         }
         return ListaPreguntas;
     }
-    public static List<Respuestas> ObtenerRespuestas(List<Preguntas> ListaPreguntas){        
-        
+    public static List<Respuestas> ObtenerRespuestas(List<Preguntas> ListaPreguntas){  
         using(SqlConnection PreguntadoORT = new SqlConnection(_connectionString))
         {
-            foreach(Preguntas pregunta in ListaPreguntas){
-            string sql = "SELECT * FROM Respuestas WHERE Idpregunta = @pPregunta";
-            ListaRespuestas = PreguntadoORT.Query<Respuestas>(sql, new{pPregunta = pregunta.IdPregunta}).ToList();
-            ListaRespuestas.AddRange(ListaRespuestas);
+            foreach(Preguntas preg in ListaPreguntas){
+                string sql = "SELECT * FROM Respuestas WHERE  IdPregunta = @pPregunta";
+                List<Respuestas> resp = PreguntadoORT.Query<Respuestas>(sql, new{pPregunta = preg.IdPregunta} ).ToList();
+                ListaRespuestas.AddRange (resp);
             }
         }
         return ListaRespuestas;
