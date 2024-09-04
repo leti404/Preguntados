@@ -38,7 +38,9 @@ public class HomeController : Controller
 
     [HttpPost] 
     public IActionResult Comenzar(string username, int dificultad, int categoria, int puntajeActual)
+    public IActionResult Comenzar(string username, int dificultad, int categoria, int puntajeActual)
     {
+
         ViewBag.NombreUser = username;
         ViewBag.puntajeActual = Juego.puntajeActual;
         Juego.CargarPartida(username, dificultad, categoria);
