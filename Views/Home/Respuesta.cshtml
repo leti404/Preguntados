@@ -1,9 +1,8 @@
-@if(Juego.VerificarRespuesta)
-{ 
-    
+@if(ViewBag.FueCorrecta)
+{
     <main class = "backgroundVic"> 
         <div class="button-container">
-            <a href='@Url.Action("ConfigurarJuego")' class="custom-button" type="button"> Comencemos! </a>
+            <a href='@Url.Action("Comenzar", "Home")' class="custom-button" type="button"> Siguiente! </a>
         </div>
     </main>
     
@@ -12,7 +11,7 @@ else{
     <div class = "backgroundPer">
         <h2>ERROR!</h2>
             <div class="button-container">
-                <a href='@Url.Action("ConfigurarJuego")' class="custom-button" type="button"> Comencemos! </a>
+                <a href='@Url.Action("Comenzar", "Home")' class="custom-button" type="button"> Siguiente! </a>
             </div> 
         <img src="https://static.wikia.nocookie.net/preguntados-juego/images/1/18/Willy2.png/revision/latest?cb=20231016170956&path-prefix=es" alt="imagen perdida">
     </div> 
