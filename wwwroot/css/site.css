@@ -36,6 +36,28 @@ body {
   background-position: center; 
   background-repeat: no-repeat; 
 }
+
+.backgroundVic {
+  background-image: url('../Fotos/victoria.jpg');
+  width: 100%;
+  height: 403px;
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+}
+.backgroundPer img {
+  display: flex;
+  justify-content: right;
+}
+.backgroundPer h2{
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  color: red;
+  font-size: x-large;
+}
+
 .img{
   display: flex ;
   justify-content: center;
