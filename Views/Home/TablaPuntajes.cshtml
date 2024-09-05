@@ -1,0 +1,23 @@
+@{
+    ViewData["Title"] = "Tabla de Puntajes";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre Jugador</th>
+            <th>Puntaje</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Puntajes jugador in ViewBag.ListaJugadores)
+        {
+            <tr>
+                <td>@jugador.NombreJugador</td>
+                <td>@jugador.Puntaje</td>
+                <td>@jugador.FechaHora</td>
+            </tr>
+        }
+    </tbody>
+</table>

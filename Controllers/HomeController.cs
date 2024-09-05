@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using TP_Preguntados.Models;
@@ -67,7 +68,19 @@ public class HomeController : Controller
             ViewBag.FueCorrecta = true;
         } 
         return View("Respuesta");
-        }
+    }
+    [HttpPost]
+    public IActionResult AgregarPuntaje(DateTime fecha)
+    {
+        BD.AgregarPuntaje(fecha);
+        return RedirectToAction("MostrarPuntajes");
+    }
+    public IActionResult TablaPuntajes()
+    {
+        ViewBag.ListaJugadores = BD.ObtenerJugadores();
+        return View();
+    }
+
 
 
 }
