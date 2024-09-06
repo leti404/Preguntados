@@ -42,17 +42,16 @@ public static List<Respuestas> ObtenerProximasRespuestas(int idPregunta){
     }
     return RespuestasPorPreg;
 }
+
 public static bool VerificarRespuesta(int idPregunta, int idRespuesta){
-    bool EsCorrecta = respuestas.Find(respuestas => respuestas.IdRespuesta == idRespuesta).Correcta;
-    if(EsCorrecta)
+    bool respuesta = respuestas.Find(r => r.IdRespuesta == idRespuesta).Correcta;
+    if(respuesta)
     {
-        puntajeActual += RESP_CORRECTA;
+        puntajeActual += 10;
         cantidadPreguntasCorrectas++;
     }
-
-    preguntas.Remove(preguntas.Find(preguntas => preguntas.IdPregunta == idPregunta));
-
-    return EsCorrecta;
+    preguntas.Remove(preguntas.Find(preg => preg.IdPregunta == idPregunta));
+    return respuesta;
 }
 }
 

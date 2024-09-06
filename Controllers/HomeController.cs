@@ -60,15 +60,14 @@ public class HomeController : Controller
             return View("Jugar");
         }
     }
-    [HttpPost] 
-    IActionResult VerificarRespuesta(int idPregunta, int idRespuesta)
+
+    [HttpPost]
+    public IActionResult VerificarRespuesta(int idPregunta, int idRespuesta)
     {
-        if(Juego.VerificarRespuesta(idPregunta, idRespuesta))
-        {
-            ViewBag.FueCorrecta = true;
-        } 
+        ViewBag.Respuesta = Juego.VerificarRespuesta(idPregunta, idRespuesta);
         return View("Respuesta");
     }
+
     [HttpPost]
     public IActionResult AgregarPuntaje(DateTime fecha)
     {
@@ -80,7 +79,4 @@ public class HomeController : Controller
         ViewBag.ListaJugadores = BD.ObtenerJugadores();
         return View();
     }
-
-
-
 }

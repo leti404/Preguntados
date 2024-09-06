@@ -38,12 +38,22 @@ body {
 }
 
 .backgroundVic {
-  background-image: url('../Fotos/victoria.jpg');
+  background-image: url('https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2022/03/preguntados-netflix-trivia-quest.jpg?fit=2184%2C1418&quality=50&strip=all&ssl=1');
   width: 100%;
-  height: 403px;
+  height: 900px;
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat; 
+}
+.vic{
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  color: green;
+  font-size: 69px;
+  display: flex;
+  align-items: center;
 }
 .backgroundPer img {
   display: flex;
