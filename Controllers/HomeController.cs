@@ -39,6 +39,7 @@ public class HomeController : Controller
 
     [HttpPost] 
     public IActionResult Comenzar(string username, int dificultad, int categoria, int puntajeActual)
+    public IActionResult Comenzar(string username, int dificultad, int categoria, int puntajeActual)
     {
 
         ViewBag.NombreUser = username;
@@ -66,6 +67,7 @@ public class HomeController : Controller
     {
         ViewBag.Respuesta = Juego.VerificarRespuesta(idPregunta, idRespuesta);
         return View("Respuesta");
+    }
     }
 
     [HttpPost]
