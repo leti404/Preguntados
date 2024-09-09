@@ -45,7 +45,7 @@ body {
 
 .backgroundVic {
   width: 100%;
-  height: 403px;
+  height: 900px;
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat; 
@@ -55,9 +55,7 @@ body {
   display: flex;
   justify-content: center;
 }
-.backgroundPer, .backgroundVic{
-  width: 100%;
-  height: 900px;
+.backgroundPer img {
   display: flex;
   align-items: center;
   flex-direction: column;
