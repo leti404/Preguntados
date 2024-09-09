@@ -1,12 +1,13 @@
-<main class = "background">
-    <p>@Juego.Username tienes @ViewBag.PuntajeActual puntos</p>
+<main class = "fondo">
+    
     <div class="containerTarjeta">
+    <p class = "ptos">@Juego.Username tienes @ViewBag.PuntajeActual puntos</p>
         <h1>PREGUNTADOS</h1>
         <div class="pregunta">
             <img src="@ViewBag.PreguntaActual.Foto" alt="Imagen de la Pregunta" />
             <p>@ViewBag.PreguntaActual.Enunciado</p>
         </div>
-        <form method="post" action='@Url.Action("VerificarRespuesta")'>
+        <form method="post" action='@Url.Action("VerificarRespuesta", "Home")'>
             <input type="hidden" name="idPregunta" value="@ViewBag.PreguntaActual.IdPregunta" />
             <ul class="opciones">
                 @foreach (Respuestas respuesta in ViewBag.DatosRespuestas)
