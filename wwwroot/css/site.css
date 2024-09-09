@@ -51,9 +51,21 @@ body {
   background-repeat: no-repeat; 
   background-color:#06D001;
 }
+.d-grid{
+  display: flex;
+  justify-content: center;
+}
 .backgroundPer, .backgroundVic{
   width: 100%;
   height: 900px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.backgroundPer img, .backgroundVic img{
+  margin-bottom: 5%;
+  margin-top: 5%;
 }
 
 .backgroundPer{
