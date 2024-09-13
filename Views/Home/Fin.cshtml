@@ -1,28 +1,33 @@
 @{
     ViewData["Title"] = "Fin";
 }
+<main class="background">
+    <section class="congratulations-message">
+        <div class="congratulations-text">
+            <h1>Felicidades @Juego.Username!</h1>
+            <p>Terminaste con @ViewBag.puntajeActual puntos!</p>
+        </div>
+    </section>
 
-<h2>Felicidades @Juego.Username!</h2>
-<h3>Terminaste! y con @ViewBag.puntajeActual puntos!</h3>
+    <section class="button-section1">
+       
+        <a href='@Url.Action("AgregarPuntaje", "Home", new { fecha = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ") })' 
+           class="btn btn-primary1 custom-button1">
+           Ver La Tabla De Puntajes
+        </a>
 
-<form action='@Url.Action("AgregarPuntaje", "Home")' method="post">
-    <div class="form-group">
-        <input type="hidden" name="fecha" id="fechaHora" />
-    </div>
-    <button type="submit" class="btn btn-primary">Ver La Tabla De Puntajes</button>
-</form>
+        <a href='@Url.Action("ConfigurarJuego")' class="btn btn-secondary custom-button1">
+            Volver a Jugar!
+        </a>
+    </section>
 
-
-<div class="button-container">
-    <a href='@Url.Action("ConfigurarJuego")' class="custom-button" type="button"> Volever a Jugar! </a>
-</div>
-
-@section Scripts {
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const now = new Date();
-            const formattedDate = now.toISOString();
-            document.getElementById("fechaHora").value = formattedDate;
-        });
-    </script>
-}
+    @section Scripts {
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const now = new Date();
+                const formattedDate = now.toISOString();
+                document.getElementById("fechaHora").value = formattedDate;
+            });
+        </script>
+    }
+</main>

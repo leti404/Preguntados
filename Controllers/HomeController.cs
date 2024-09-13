@@ -63,11 +63,13 @@ public class HomeController : Controller
         if(Juego.VerificarRespuesta(idPregunta, idRespuesta))
         {
             ViewBag.FueCorrecta = true;
-        } 
+        } else{
+            ViewBag.FueCorrecta = false;
+        }
         return View("Respuesta");
     }
 
-    [HttpPost]
+    [HttpGet]
     public IActionResult AgregarPuntaje(DateTime fecha)
     {
         Console.WriteLine(fecha);
