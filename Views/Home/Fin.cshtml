@@ -1,8 +1,9 @@
-
-
 @{
     ViewData["Title"] = "Fin";
 }
+
+<h2>Felicidades @Juego.Username!</h2>
+<h3>Terminaste! y con @ViewBag.puntajeActual puntos!</h3>
 
 <form action='@Url.Action("AgregarPuntaje", "Home")' method="post">
     <div class="form-group">
@@ -10,6 +11,11 @@
     </div>
     <button type="submit" class="btn btn-primary">Ver La Tabla De Puntajes</button>
 </form>
+
+
+<div class="button-container">
+    <a href='@Url.Action("ConfigurarJuego")' class="custom-button" type="button"> Volever a Jugar! </a>
+</div>
 
 @section Scripts {
     <script>
