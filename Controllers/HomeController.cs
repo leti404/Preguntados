@@ -2,9 +2,7 @@ using System;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using TP_Preguntados.Models;
-
 namespace TP_Preguntados.Controllers;
-
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
@@ -40,7 +38,6 @@ public class HomeController : Controller
     [HttpPost] 
     public IActionResult Comenzar(string username, int dificultad, int categoria, int puntajeActual)
     {
-
         ViewBag.NombreUser = username;
         ViewBag.puntajeActual = Juego.puntajeActual;
         Juego.CargarPartida(username, dificultad, categoria);
@@ -69,13 +66,13 @@ public class HomeController : Controller
         } 
         return View("Respuesta");
     }
-    }
 
     [HttpPost]
     public IActionResult AgregarPuntaje(DateTime fecha)
     {
+        Console.WriteLine(fecha);
         BD.AgregarPuntaje(fecha);
-        return RedirectToAction("MostrarPuntajes");
+        return RedirectToAction("TablaPuntajes");
     }
     public IActionResult TablaPuntajes()
     {

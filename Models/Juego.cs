@@ -29,9 +29,17 @@ public static void CargarPartida(string username, int dificultad, int categoria)
     Username = username;
 }
 public static Preguntas ObtenerProximaPregunta(){
-    Random random = new Random();
-    int numeroAleatorio = random.Next(0, preguntas.Count);
-    return preguntas[numeroAleatorio];
+    
+    if(preguntas.Count == 0)
+    {
+        return  null;
+    }
+    else{
+        Random random = new Random();
+        int numeroAleatorio = random.Next(0, preguntas.Count);
+        return preguntas[numeroAleatorio];
+    }
+
 }
 public static List<Respuestas> ObtenerProximasRespuestas(int idPregunta){
     List<Respuestas> RespuestasPorPreg = new List<Respuestas>();

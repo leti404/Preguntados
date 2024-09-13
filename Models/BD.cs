@@ -66,35 +66,15 @@ public class BD{
 
     public static void AgregarPuntaje(DateTime fecha)
     {
-        //string u;
-        //u  = Juego.Username;
-        //int punt = Juego.puntajeActual;
-        //string sql = "INSERT INTO Puntajes(NombreJugador, Puntaje, FechaHora) VALUES (@u, @punt, @fecha)";
-        //using(SqlConnection PreguntadoORT = new SqlConnection(_connectionString))
-        //{
-            //PreguntadoORT.Execute(sql, new{u = NombreJugador, punt = Puntaje, FechaHora = fecha}); 
-        //}
         string nombreJugador = Juego.Username;
         int puntaje = Juego.puntajeActual;    
-
-        string sql = "INSERT INTO Puntajes(NombreJugador, Puntaje, FechaHora) VALUES (@NombreJugador, @Puntaje, @FechaHora)";
-        
+        string sql = "INSERT INTO Puntajes(NombreJugador, Puntaje, FechaHora) VALUES (@NombreJugador, @Puntaje, @Fecha)";
         using (SqlConnection connection = new SqlConnection(_connectionString))
         {
-            connection.Execute(sql, new { NombreJugador = nombreJugador, Puntaje = puntaje, FechaHora = fecha });
+            connection.Execute(sql, new { NombreJugador = nombreJugador, Puntaje = puntaje, Fecha = fecha});
         }
-
     }
-    public static List<Puntajes> ObtenerJugadores(){  
-        
-        /*List<Puntajes> ListaJugadores = new List<Puntajes> ();
-        using(SqlConnection PreguntadoORT = new SqlConnection(_connectionString))
-        {
-            string sql = "SELECT * FROM Puntajes ORDER BY Puntaje DESC";
-            listaJugadores = connection.Query<Puntajes>(sql).ToList();
-        }
-        return listaJugadores;
-        */
+    public static List<Puntajes> ObtenerJugadores(){ 
         List<Puntajes> listaJugadores = new List<Puntajes>();
     
         using (SqlConnection PreguntadoORT = new SqlConnection(_connectionString))
@@ -104,6 +84,5 @@ public class BD{
         }
         return listaJugadores;
     }
-
 
 }

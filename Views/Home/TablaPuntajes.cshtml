@@ -2,22 +2,29 @@
     ViewData["Title"] = "Tabla de Puntajes";
 }
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Nombre Jugador</th>
-            <th>Puntaje</th>
-            <th>Fecha</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (Puntajes jugador in ViewBag.ListaJugadores)
-        {
-            <tr>
-                <td>@jugador.NombreJugador</td>
-                <td>@jugador.Puntaje</td>
-                <td>@jugador.FechaHora</td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="card">
+    <div class="card-header">
+        <h2>Ranking de Jugadores</h2>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre Jugador</th>
+                    <th>Puntaje</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Puntajes jugador in ViewBag.ListaJugadores)
+                {
+                    <tr>
+                        <td>@jugador.NombreJugador</td>
+                        <td>@jugador.Puntaje</td>
+                        <td>@jugador.FechaHora</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
